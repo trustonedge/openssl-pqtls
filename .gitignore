@@ -1,0 +1,38 @@
+# Build artifacts
+*.o
+*.out
+*.a
+*.so
+*.dll
+*.exe
+
+# Certificates, keys, and crypto-related files
+*.pem
+*.srl
+*.csr
+*.crt
+*.key
+
+# Debug / profiling files
+*.gch
+*.gcda
+*.gcno
+*.gcov
+*.prof
+*.profraw
+
+# Logs
+*.log
+
+# VS Code settings
+.vscode/
+*.code-workspace
+
+# OS-specific junk
+.DS_Store
+Thumbs.db
+
+# Backup / temp files
+*~
+*.swp
+*.bak
