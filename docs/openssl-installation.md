@@ -2,10 +2,10 @@
 
 ## Overview
 
-This guide will help you safely replace your current [OpenSSL](https://github.com/openssl/openssl) installation with the latest stable version (OpenSSL 3.5.x LTS or higher) in the default system location. 
+This guide explains how to build and install the latest stable version of [OpenSSL](https://github.com/openssl/openssl) (3.5.x LTS or higher) in the system’s default locations.  
 
 > [!IMPORTANT]
-> Perform this installation in a virtual machine (VM) for testing.
+> Perform this installation in a **virtual machine (VM)** for testing to avoid breaking system dependencies.
 
 ## Prerequisites Check
 First, check your current OpenSSL version and system details:
@@ -89,12 +89,12 @@ Configure OpenSSL for system-wide installation in default locations:
 
 Configuration Options Explained:
 
-`--prefix=/usr`: Install base files in `/usr`
-`--openssldir=/etc/ssl`: Store configuration files in `/etc/ssl`
-`--libdir=lib`: Use `/usr/lib` for libraries (instead of `/usr/lib64`)
-`shared`: Build shared libraries
-`zlib-dynamic`: Enable dynamic zlib compression support
-`"-Wl,-rpath,\$(LIBRPATH)"`: Set runtime library path
+- `--prefix=/usr`: Install base files in `/usr`
+- `--openssldir=/etc/ssl`: Store configuration files in `/etc/ssl`
+- `--libdir=lib`: Use `/usr/lib` for libraries (instead of `/usr/lib64`)
+- `shared`: Build shared libraries
+- `zlib-dynamic`: Enable dynamic zlib compression support
+- `"-Wl,-rpath,\$(LIBRPATH)"`: Set runtime library path
 
 ## Step 4: Compile OpenSSL
 
@@ -124,3 +124,5 @@ sudo ldconfig
 which openssl
 openssl version -a
 ```
+
+![openssl-version-check](./images/openssl-v351.png)

@@ -1,30 +1,35 @@
+Here’s a refined version of your `README.md` — I made the structure more consistent, polished the language, and improved clarity while keeping it concise:
+
+````markdown
 # OpenSSL-based PQ-TLS
 
-This repository provides an improved version of [tls-quantum-safe](https://github.com/seantywork/linuxyz/tree/main/tls-quantum-safe).
+This repository provides an enhanced version of [tls-quantum-safe](https://github.com/seantywork/linuxyz/tree/main/tls-quantum-safe), demonstrating post-quantum TLS using OpenSSL with [liboqs](https://github.com/open-quantum-safe/liboqs).
 
 ## Prerequisites
 
 1. [Install OpenSSL](./docs/openssl-installation.md)  
 2. [Set up liboqs](./docs/liboqs-setup.md)  
 
-> **Note**: 
-> This setup uses a VM to install a newer system-level OpenSSL version. Don't do it for local system.
+> [!NOTE] 
+> Use a virtual machine (VM) for installation. Replacing the system-level OpenSSL on your host machine is not recommended.
 
-## Certificates & Keys
+## Certificates and Keys
 
-Used **self-signed CA certificates** and **ML-DSA-65** for certs and keys.
+This setup uses **self-signed CA certificates** and **ML-DSA-65** for keys and certificates.
 
-### Generate CA certificate
+### 1. Generate CA certificate
+
 ```bash
+mkdir ca/
 openssl req -x509 -new -newkey mldsa65 \
   -keyout ca/ca-key.pem \
   -out ca/ca-cert.pem \
   -nodes \
   -subj "/CN=microsoft" \
   -days 3650
-```
+````
 
-### Generate server key & CSR
+### 2. Generate server key and CSR
 
 ```bash
 openssl genpkey -algorithm mldsa65 -out server/server-key.pem
@@ -36,7 +41,7 @@ openssl req -new -newkey mldsa65 \
   -subj "/CN=rules"
 ```
 
-### Sign server certificate with CA
+### 3. Sign server certificate with CA
 
 ```bash
 openssl x509 -req \
@@ -50,7 +55,7 @@ openssl x509 -req \
 
 ## Build
 
-Compile server and client:
+Compile the server and client:
 
 ```bash
 make
