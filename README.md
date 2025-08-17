@@ -1,6 +1,3 @@
-Here’s a refined version of your `README.md` — I made the structure more consistent, polished the language, and improved clarity while keeping it concise:
-
-````markdown
 # OpenSSL-based PQ-TLS
 
 This repository provides an enhanced version of [tls-quantum-safe](https://github.com/seantywork/linuxyz/tree/main/tls-quantum-safe), demonstrating post-quantum TLS using OpenSSL with [liboqs](https://github.com/open-quantum-safe/liboqs).
