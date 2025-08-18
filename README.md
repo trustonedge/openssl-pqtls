@@ -17,20 +17,19 @@ This setup uses **self-signed CA certificates** and **ML-DSA-65** for keys and c
 ### 1. Generate CA certificate
 
 ```bash
-mkdir ca/
+mkdir ca
+
 openssl req -x509 -new -newkey mldsa65 \
   -keyout ca/ca-key.pem \
   -out ca/ca-cert.pem \
   -nodes \
   -subj "/CN=microsoft" \
   -days 3650
-````
+```
 
 ### 2. Generate server key and CSR
 
 ```bash
-openssl genpkey -algorithm mldsa65 -out server/server-key.pem
-
 openssl req -new -newkey mldsa65 \
   -keyout server/server-key.pem \
   -out server/server.csr \
