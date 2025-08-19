@@ -61,7 +61,7 @@ make test
 sudo make install
 
 # Update library cache
-sudo ldconfig
+sudo ldconfig /usr/local/lib64/
 ```
 
 ## Step 5: Verify Installation
